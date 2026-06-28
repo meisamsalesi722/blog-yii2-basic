@@ -28,7 +28,7 @@ use yii\helpers\ArrayHelper;
 $this->title = 'داشبورد مدیریت';
 ?>
 
-<div class="dashboard-index">
+<div class="dashboard-index ">
     <!-- Header -->
     <div class="row mb-4">
         <div class="col-12">
@@ -503,6 +503,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
+    });
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // فعال‌سازی تب‌ها با Bootstrap JS
+    const tabs = document.querySelectorAll('[data-bs-toggle="tab"]');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                // غیرفعال کردن همه تب‌ها
+                document.querySelectorAll('.tab-pane').forEach(pane => {
+                    pane.classList.remove('show', 'active');
+                });
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // فعال کردن تب فعلی
+                this.classList.add('active');
+                target.classList.add('show', 'active');
+            }
+        });
     });
 });
 </script>

@@ -5,12 +5,25 @@ namespace app\models;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use yii\behaviors\TimestampBehavior;
 
 class User extends ActiveRecord implements IdentityInterface
 {
     public static function tableName()
     {
         return 'user';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => time(), // یا می‌توانید از date('Y-m-d H:i:s') استفاده کنید
+            ],
+        ];
     }
 
     public static function findIdentity($id)

@@ -42,7 +42,7 @@ use yii\helpers\StringHelper;
             <?= Html::a(
                 Html::encode($model->title),
                 ['blog/view', 'slug' => $model->slug],
-                ['class' => 'text-decoration-none text-dark']
+                ['class' => 'text-decoration-none text-body']
             ) ?>
         </h5>
 

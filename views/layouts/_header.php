@@ -48,6 +48,12 @@ NavBar::begin([
         </li>
 
         <li class="nav-item">
+            <a class="nav-link" href="<?= Url::to(['/favorite']) ?>">
+                علاقه مندی ها
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link" href="<?= Url::to(['/site/contact']) ?>">
                 تماس با ما
             </a>
@@ -145,6 +151,15 @@ NavBar::begin([
             </li>
 
         <?php endif; ?>
+
+        <?= Html::button(
+    '🌙',
+    [
+        'id' => 'theme-toggle',
+        'class' => 'btn btn-link nav-link fs-5',
+        'aria-label' => 'Switch Theme',
+    ]
+) ?>
 
     </ul>
 

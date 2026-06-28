@@ -89,13 +89,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         <i class="fas fa-lightbulb text-primary fs-4 me-3 mt-1"></i>
                         <div class="flex-grow-1">
                             <h6 class="fw-bold text-primary mb-1">خلاصه مقاله</h6>
-                            <p class="mb-0"><?= Html::encode($model->summary) ?></p>
+                            <p class="mb-0 text-dark"><?= Html::encode($model->summary) ?></p>
                         </div>
                     </div>
                 <?php endif; ?>
 
                 <!-- محتوا -->
-                <div class="article-content">
+                <div class="article-content text-body">
                     <?= $model->content ?>
                 </div>
 

@@ -43,6 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>'category.title',
             ],
             'title',
+
             'slug',
             //'summary:ntext',
             //'content:ntext',

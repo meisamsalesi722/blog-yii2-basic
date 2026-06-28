@@ -1,8 +1,6 @@
 <?php 
 use yii\helpers\Url;
 use yii\helpers\Html;
-use app\assets\AppAsset;
-use yii\bootstrap5\Breadcrumbs;
 ?>
 <!-- سایدبار -->
 <aside class="admin-sidebar" id="sidebar">
@@ -14,13 +12,17 @@ use yii\bootstrap5\Breadcrumbs;
         <small>مدیریت سیستم</small>
     </div>
 
+    <?php
+$currentRoute = Yii::$app->controller->getRoute();
+echo $currentRoute;
+?>
     <ul class="sidebar-menu">
         <li class="menu-label">داشبورد</li>
         <li>
             <?= Html::a(
                 '<i class="fas fa-chart-pie"></i> داشبورد',
                 Url::to(['/admin/dashboard']),
-                ['class' => Yii::$app->controller->id === 'site' ? 'active' : '']
+                ['class' => $currentRoute === 'admin/dashboard/index' ? 'active' : '']
             ) ?>
         </li>
 
@@ -29,7 +31,7 @@ use yii\bootstrap5\Breadcrumbs;
             <?= Html::a(
                 '<i class="fas fa-newspaper"></i> مقالات',
                 Url::to(['admin/article/index']),
-                ['class' => Yii::$app->controller->id === 'article' ? 'active' : '']
+                ['class' => $currentRoute === 'admin/article/index' ? 'active' : '']
             ) ?>
         </li>
          <?php if( Yii::$app->user->can('admin')){ ?>
@@ -38,21 +40,21 @@ use yii\bootstrap5\Breadcrumbs;
             <?= Html::a(
                 '<i class="fas fa-newspaper"></i> علاقه مندی ها',
                 Url::to(['admin/favorite/index']),
-                // ['class' => Yii::$app->controller->id === 'article' ? 'active' : '']
+                ['class' => $currentRoute === 'admin/favorite/index' ? 'active' : '']
             ) ?>
         </li>
         <li>
             <?= Html::a(
                 '<i class="fas fa-tags"></i> دسته‌بندی‌ها',
                 Url::to(['admin/category/index']),
-                ['class' => Yii::$app->controller->id === 'category' ? 'active' : '']
+                ['class' => $currentRoute === 'admin/category/index' ? 'active' : '']
             ) ?>
         </li>
         <li>
             <?= Html::a(
                 '<i class="fas fa-comments"></i> نظرات',
                 Url::to(['admin/comment/index']),
-                ['class' => Yii::$app->controller->id === 'comment' ? 'active' : '']
+                ['class' => $currentRoute === 'admin/comment/index' ? 'active' : '']
             ) ?>
         </li>
         <?php } ?>
@@ -63,20 +65,22 @@ use yii\bootstrap5\Breadcrumbs;
             <?= Html::a(
                 '<i class="fas fa-user-tag"></i> نقش‌ها',
                 Url::to( ['/admin/rbac/index']),
-                ['class' => Yii::$app->controller->id === 'user' ? 'active' : '']
+                ['class' =>$currentRoute === 'admin/rbac/index' ? 'active' : '']
                 ) ?>
         </li>
         <li>
             <?= Html::a(
                 '<i class="fas fa-user-cog"></i> تخصیص نقش',
                 Url::to( ['/admin/rbac/assign']),
-                ['class' => Yii::$app->controller->id === 'user' ? 'active' : '']
+                ['class' => $currentRoute === 'admin/rbac/assign' ? 'active' : '']
             ) ?>
         </li>
         <?php } ?>
         <!-- -------------------- -->
 
     </ul>
+
+    
 
     <!-- دکمه تغییر تم در سایدبار -->
     <div class="theme-toggle-sidebar" id="themeToggleSidebar">

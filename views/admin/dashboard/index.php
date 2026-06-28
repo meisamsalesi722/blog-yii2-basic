@@ -141,8 +141,12 @@ $this->title = 'داشبورد مدیریت';
                         </div>
                     </div>
                     <div class="mt-3">
-                        <span class="badge bg-secondary">سطح اول</span>
-                        <span class="badge bg-info">زیردسته</span>
+                        <span class="badge bg-secondary">سطح اول
+                            <?= number_format($totalParentCategories) ?>
+                        </span>
+                        <span class="badge bg-info">زیردسته
+                            <?= number_format($totalChildrenCategories) ?>
+                        </span>
                     </div>
                 </div>
             </div>

@@ -35,6 +35,8 @@ class DashboardController extends Controller
         // آمار کلی
         $totalArticles = Article::find()->count();
         $totalCategories = Category::find()->count();
+        $totalParentCategories = Category::find()->where(['parent_id'=> null])->count();
+        $totalChildrenCategories = Category::find()->where(['is not', 'parent_id', null])->count();
         $totalComments = Comment::find()->count();
         $totalUsers = User::find()->count();
         $totalFavorites = Favorite::find()->count();
@@ -98,6 +100,8 @@ class DashboardController extends Controller
         return $this->render('index', [
             'totalArticles' => $totalArticles,
             'totalCategories' => $totalCategories,
+            'totalChildrenCategories' => $totalChildrenCategories,
+            'totalParentCategories' => $totalParentCategories,
             'totalComments' => $totalComments,
             'totalUsers' => $totalUsers,
             'totalFavorites' => $totalFavorites,

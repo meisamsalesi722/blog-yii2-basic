@@ -101,9 +101,12 @@ class CategoryController extends Controller
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
+        $categories = ArrayHelper::map(Category::find()
+        ->where(['parent_id' => null])->all(), 'id', 'title');
 
         return $this->render('/admin/category/update', [
             'model' => $model,
+            'categories' => $categories,
         ]);
     }
 

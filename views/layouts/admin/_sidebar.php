@@ -32,6 +32,7 @@ use yii\bootstrap5\Breadcrumbs;
                 ['class' => Yii::$app->controller->id === 'article' ? 'active' : '']
             ) ?>
         </li>
+         <?php if( Yii::$app->user->can('admin')){ ?>
         <li class="menu-label">علاقه‌مندی‌ها</li>
         <li>
             <?= Html::a(
@@ -54,8 +55,9 @@ use yii\bootstrap5\Breadcrumbs;
                 ['class' => Yii::$app->controller->id === 'comment' ? 'active' : '']
             ) ?>
         </li>
+        <?php } ?>
         <!-- -------------------- -->
-
+                <?php if( Yii::$app->user->can('admin')){ ?>
         <li class="menu-label">مدیریت دسترسی</li>
         <li>
             <?= Html::a(
@@ -71,23 +73,9 @@ use yii\bootstrap5\Breadcrumbs;
                 ['class' => Yii::$app->controller->id === 'user' ? 'active' : '']
             ) ?>
         </li>
-        <li>
-            <?= Html::a(
-                '<i class="fas fa-users"></i> مدیریت کاربران',
-                Url::to( ['admin/user/index']),
-                ['class' => Yii::$app->controller->id === 'user' ? 'active' : '']
-            ) ?>
-        </li>
-        
+        <?php } ?>
         <!-- -------------------- -->
-        <li class="menu-label">تنظیمات</li>
-        <li>
-            <?= Html::a(
-                '<i class="fas fa-cog"></i> تنظیمات',
-                Url::to(['admin/settings/index']),
-                ['class' => Yii::$app->controller->id === 'settings' ? 'active' : '']
-            ) ?>
-        </li>
+
     </ul>
 
     <!-- دکمه تغییر تم در سایدبار -->

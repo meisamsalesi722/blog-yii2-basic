@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     'buttons' => [
         'update' => function ($url, $model) {
-            return Yii::$app->user->can('updateArticle')
+            return (Yii::$app->user->can('updateArticle') && $model->user_id == Yii::$app->user->id) || (Yii::$app->user->can('admin') || Yii::$app->user->can('editor'))
                 ? Html::a('Update', $url)
                 : '';
         },

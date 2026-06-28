@@ -56,15 +56,24 @@ $this->params['breadcrumbs'][] = $this->title;
     'template' => '{view} {update} {delete}',
 
     'buttons' => [
+        'view' => function ($url, $model) {
+            $url = ['admin/article/view', 'slug' => $model->slug];
+
+            return Html::a('<i class="fas fa-eye"></i>', $url);
+        },
+
         'update' => function ($url, $model) {
+            $url = ['admin/article/update', 'slug' => $model->slug];
+
             return (Yii::$app->user->can('updateArticle') && $model->user_id == Yii::$app->user->id) || (Yii::$app->user->can('admin') || Yii::$app->user->can('editor'))
-                ? Html::a('Update', $url)
+                ? Html::a('<i class="fas fa-edit"></i>', $url)
                 : '';
         },
 
         'delete' => function ($url, $model) {
+            $url = ['admin/article/delete', 'slug' => $model->slug];
             return Yii::$app->user->can('deleteArticle')
-                ? Html::a('Delete', $url, [
+                ? Html::a('<i class="fas fa-trash"></i>', $url, [
                     'data-method' => 'post',
                     'data-confirm' => 'Are you sure?'
                 ])

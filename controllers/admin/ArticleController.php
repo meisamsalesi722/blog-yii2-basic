@@ -132,9 +132,9 @@ class ArticleController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
 
-        public function actionUpdate($id)
+        public function actionUpdate($slug)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($slug);
         $categories = ArrayHelper::map(Category::find()->all(), 'id', 'title');
 
         if ($this->request->isPost && $model->load($this->request->post())) {
@@ -183,12 +183,12 @@ class ArticleController extends Controller
      * @return \yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($slug)
     {
         if (!Yii::$app->user->can('deleteArticle')) {
             throw new ForbiddenHttpException();
         }
-        $model =$this->findModel($id);
+        $model =$this->findModel($slug);
         $model->deleteFiles();
         $model->delete();
         Yii::$app->session->setFlash('success', 'مقاله با موفقیت حذف شد.');

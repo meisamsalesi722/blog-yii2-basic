@@ -161,14 +161,18 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 </span>
                                             </td>
                                             <td>
-                                                <div class="text-nowrap">
-                                                    <small class="text-muted d-block">
+                                                <div class="text-nowrap text-white">
+                                                    <small class="text-muted d-block ">
                                                         <i class="far fa-calendar-alt"></i> 
-                                                        <?= Yii::$app->formatter->asDatetime($comment->created_at, 'php:Y/m/d') ?>
+                                                        <p class="text-white">
+                                                            <?= Yii::$app->formatter->asDatetime($comment->created_at, 'php:Y/m/d') ?>
+                                                        </p>
                                                     </small>
-                                                    <small class="text-muted d-block">
-                                                        <i class="far fa-clock"></i> 
-                                                        <?= Yii::$app->formatter->asRelativeTime($comment->created_at) ?>
+                                                    <small class="text-muted d-block ">
+                                                        <i class="far fa-clock"></i>
+                                                         <p class="text-white"> 
+                                                            <?= Yii::$app->formatter->asRelativeTime($comment->created_at) ?>
+                                                        </p>
                                                     </small>
                                                 </div>
                                             </td>
@@ -213,7 +217,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
 
                     <!-- خلاصه آمار -->
-                    <div class="row mt-4">
+                    <div class="row mt-4 text-white">
                         <div class="col-md-3">
                             <div class="stat-card bg-primary bg-opacity-10 p-3 rounded-3">
                                 <h6 class="text-primary">کل نظرات</h6>

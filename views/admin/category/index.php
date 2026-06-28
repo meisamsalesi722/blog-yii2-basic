@@ -38,8 +38,18 @@ $this->params['breadcrumbs'][] = $this->title;
         return $model->parent ? $model->parent->title : 'دسته اصلی';
     },
             ],
-            'created_at',
-            'updated_at',
+            [
+                'attribute'=>'created_at',
+                'value'=> function($model) {
+                    return date('Y-m-d H:i:s', $model->created_at);
+                }
+            ],
+            [
+                'attribute'=>'updated_at',
+                'value'=> function($model) {
+                    return date('Y-m-d H:i:s', $model->updated_at);
+                }
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Category $model, $key, $index, $column) {

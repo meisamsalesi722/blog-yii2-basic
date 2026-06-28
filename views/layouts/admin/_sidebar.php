@@ -14,7 +14,6 @@ use yii\helpers\Html;
 
     <?php
 $currentRoute = Yii::$app->controller->getRoute();
-echo $currentRoute;
 ?>
     <ul class="sidebar-menu">
         <li class="menu-label">داشبورد</li>

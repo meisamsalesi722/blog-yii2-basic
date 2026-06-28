@@ -29,10 +29,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'user_id',
-            'article_id',
-            'created_at',
+            // 'id',
+            // 'user_id',
+            [
+                'attribute'=>'user_id',
+                'value'=>'user.username',
+            ],
+            // 'article_id',
+            [
+                'attribute'=>'article_id',
+                'value'=>'article.title',
+            ],
+            [
+                'attribute'=>'created_at',
+                'value'=> function($model) {
+                    return date('Y-m-d H:i:s', $model->created_at);
+                }
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Favorite $model, $key, $index, $column) {

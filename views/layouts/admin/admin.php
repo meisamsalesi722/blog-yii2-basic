@@ -11,7 +11,7 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>" dir="rtl" id="html-theme">
+<html lang="<?= Yii::$app->language ?>" dir="rtl" data-bs-theme="light" id="html-theme">
  <?= $this->render('_head') ?>
 <body>
 <?php $this->beginBody() ?>

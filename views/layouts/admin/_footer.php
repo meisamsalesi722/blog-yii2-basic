@@ -20,6 +20,7 @@
         // اعمال تم
         function setTheme(theme) {
             currentTheme = theme;
+            htmlElement.setAttribute('data-bs-theme', theme);
             htmlElement.setAttribute('data-theme', theme);
             localStorage.setItem('adminTheme', theme);
             

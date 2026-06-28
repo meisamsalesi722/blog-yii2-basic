@@ -208,7 +208,7 @@ $this->title = 'داشبورد مدیریت';
                                 </div>
                                 <div class="flex-grow-1 ms-3">
                                     <a href="<?= Url::to(['/admin/article/view', 'slug' => $article->slug]) ?>" 
-                                       class="text-decoration-none text-dark fw-bold">
+                                       class="text-decoration-none text-body fw-bold">
                                         <?= Html::encode($article->title) ?>
                                     </a>
                                     <br>
@@ -302,7 +302,7 @@ $this->title = 'داشبورد مدیریت';
                                         </div>
                                         <div class="flex-grow-1 ms-3">
                                             <a href="<?= Url::to(['/admin/article/view', 'slug' => $article->slug]) ?>" 
-                                               class="text-decoration-none text-dark">
+                                               class="text-decoration-none text-body">
                                                 <?= Html::encode($article->title) ?>
                                             </a>
                                             <br>
@@ -411,6 +411,8 @@ $this->title = 'داشبورد مدیریت';
     border: none;
     color: #0d6efd;
 }
+
+
 </style>
 
 <!-- اسکریپت‌ها برای Chart.js -->
